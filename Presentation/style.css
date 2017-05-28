@@ -1,0 +1,16 @@
+.section .reveal .state-background {
+    background: white;}
+.section .reveal h1,
+.section .reveal p {
+    color: black;
+    position: relative;
+    top: 4%;}
+
+.footer {
+    color: black; background: #E8E8E8;
+    position: fixed; top: 95%;
+}
+
+.small-code pre code {
+  font-size: 1em;
+}

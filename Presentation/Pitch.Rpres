@@ -1,0 +1,71 @@
+Baby Height Predictor
+========================================================
+author:
+date: 05/28/2017
+autosize: true
+transition: rotate
+css: style.css
+
+<div align="center">
+<img src="kids_growth.jpg" >
+</div>
+
+
+Motivation
+========================================================
+
+Not surprisingly, parents are interested in knowing what their future children will be like. One topic of interest is how tall their child will be as an adult. As one might expect, height is somewhat predictable. We can predict a child’s adult height with the parents’ heights and the baby’s gender.
+
+A demo app has been devoloped to show this relationship. It can be found at:
+
+<https://peggylind.shinyapps.io/HeightPredictor/>
+
+Once the baby is born you can do more accurate predictions using lookup tables but that’s beyond the scope of this project.
+
+Methodology
+========================================================
+
+There's no proven way to predict a child's adult height. However, several formulas can provide a reasonable guess for child growth. We choose the following:
+
+- Add the mother's height and the father's height in either inches or centimeters.
+- Add 5 inches (13 centimeters) for boys or subtract 5 inches (13 centimeters) for girls.
+- Divide by two.
+
+<div class="footer" style="margin-top:-150px;font-size:80%;">
+See <a href="http://www.mayoclinic.org/child-growth/expert-answers/faq-20057990">http://www.mayoclinic.org/child-growth/expert-answers/faq-20057990</a> for more detail.</div>
+
+
+Example with Code
+========================================================
+class: small-code
+
+```{r, echo=TRUE}
+# What gender is the baby? Enter M or F.
+gender <- "M"
+# How tall is the mother in inches? Enter a number.
+mother <- 64.5
+# How tall is the father in inches? Enter a number.
+father <- 70
+# Use an if statement to create a correction of 5 if gender is male and
+# -5 if gender is -5
+if(gender=="M") correction <- 5 else
+ correction <- -5
+# Calculate height by adding the mother's height, the father's height and
+# the correction factor
+height <- (mother + father + correction) / 2
+# Create values that the user will understand
+feet <- trunc(height / 12)
+inches <- round(height - feet * 12, 0)
+# Let the user know how tall their baby will be
+print(paste("Your baby will be about ",feet," feet, ",inches," inches tall as an adult.",sep=""))
+```
+
+Acknowledgement
+========================================================
+
+The idea for the app was supported with R code found at [http://rprogramming.net/r-baby-height-predictor/](http://rprogramming.net/r-baby-height-predictor/) and implmented as an Shiny app.
+
+It was built as part of a deliverable for the course "Developing Data Products"" as part of the Coursera Data Science Specialization.
+
+Source code for ui.R and server.R files are available on the GitHub repo:
+[https://github.com/peggylind/week4-shiny](https://github.com/peggylind/week4-shiny)

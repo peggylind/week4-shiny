@@ -22,18 +22,22 @@ shinyUI(fluidPage(
                    c("Female" = "f",
                      "Male" = "m")),
       sliderInput("heightMother",
-                  label = "How tall is the mother in inches? Enter a number:",
+                  label = "How tall is the mother in inches?",
                   min = 50, max = 85, value = 0),
       sliderInput("heightFather",
-                  label = "How tall is the father in inches? Enter a number:",
+                  label = "How tall is the father in inches?",
                   min = 50, max = 85, value = 0),
       actionButton("goButton", "Calculate", icon("refresh"))
     ),
 
     # Show a plot of the generated distribution
     mainPanel(
-      h5("Can't wait to see how tall your child will be as an adult? Use the height calculator to find out. Simply enter the values in the side panel and press the \"Calculate\" button. The result will be shown below."),
-       textOutput("result")
+      h4("Can't wait to see how tall your child will be as an adult? Use the height calculator to find out. Simply enter the values in the side panel and press the \"Calculate\" button. The result will be shown below."),
+      helpText(a("See github page for details about server calculations and code",
+                 href="https://github.com/peggylind/week4-shiny",
+                 target="_blank")
+      ),
+      textOutput("result")
     )
   )
 ))
