@@ -19,8 +19,8 @@ shinyUI(fluidPage(
   sidebarLayout(
     sidebarPanel(
       radioButtons("gender", "Baby's gender:",
-                   c("Female" = "f",
-                     "Male" = "m")),
+                   c("Female" = "F",
+                     "Male" = "M")),
       sliderInput("heightMother",
                   label = "How tall is the mother in inches?",
                   min = 50, max = 85, value = 0),
